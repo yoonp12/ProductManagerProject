@@ -1,3 +1,5 @@
+const { Product } = require('../models/product.model')
+
 module.exports.createProduct = (req, res) => {
     const { title, price, description } = req.body
     Product.create({
@@ -15,7 +17,6 @@ module.exports.findOneProduct = (req, res) => {
     .catch(err => res.json({ message: "Something went wrong", error: err}))
 };
 
-const { Product } = require('../models/product.model')
 module.exports.findAllProducts = (req, res) => {
     Product.find()
     .then(allProducts => res.json({ products: allProducts}))
